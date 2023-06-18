@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/montserrat-variablefont_wght-webfont.woff2"),
+    url("assets/montserrat-variablefont_wght-webfont.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fraunces-variablefont_wght-webfont.woff2") format("woff2"),
+    url("assets/fraunces-variablefont_wght-webfont.woff") format("woff");
+  /* font-weight: normal; */
+  font-style: normal;
+}
+
 :root {
   --clr-greeny: hsl(158, 36%, 37%);
   --clr-cream: hsl(30, 38%, 92%);
@@ -10,4 +26,9 @@
   --fs-medium: 20px;
   --fs-large: 22px;
   --fs-xxl: 25px;
+}
+
+body {
+  font-family: "Fraunces";
+  font-weight: 550;
 }
