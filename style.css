@@ -72,7 +72,7 @@ h6 {
   font-style: normal;
   font-display: swap;
 } */
-/* this is supper thin * not visible... */
+/* this is supper thin & not visible... */
 
 @font-face {
   font-family: "Fraunces";
@@ -80,7 +80,7 @@ h6 {
       format("woff2"),
     url("assets/fraunces-variablefont_softwonkopszwght-webfont.woff")
       format("woff");
-  font-weight: 1 1000;
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -97,10 +97,6 @@ h6 {
   --ff-title: "Fraunces", serif;
 
   --fs-normal: 0.875rem;
-  --fs-small: 10px;
-  --fs-medium: 20px;
-  --fs-large: 22px;
-  --fs-xxl: 25px;
 
   --fw-normal: 500;
   --fw-bold: 700;
@@ -109,8 +105,7 @@ h6 {
 /* Global Styles */
 body {
   background-color: var(--clr-cream);
-  font-family: "Montserrat", sans-serif;
-  /* font-family: var(--ff-body); */
+  font-family: var(--ff-body);
   font-size: var(--fs-normal);
   font-weight: var(--fw-normal);
   color: var(--clr-grayish-blue);
@@ -124,12 +119,12 @@ body {
 
 .flex-group {
   display: flex;
-  gap: 0.5rem;
-  justify-content: center;
+  gap: 0.8rem;
   align-items: center;
   flex-wrap: wrap;
 }
 
+/* Visually Hidden - Tip from Kevin Powell */
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -140,21 +135,59 @@ body {
   width: 1px;
 }
 
+.button {
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-greeny);
+  border-radius: 0.5rem;
+  color: var(--clr-white);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-normal);
+  padding: 0.7rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-dark-greeny);
+}
+
 /* Product Styles */
 .product {
-  --content-padding: 1.5rem;
-  --content-spacing: 0.8rem;
+  --content-padding: 1.2rem;
+  --content-spacing: 1rem;
   background-color: var(--clr-white);
   display: grid;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   overflow: hidden;
   max-width: 600px;
+}
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+    --content-padding: 2rem;
+  }
 }
 
 .product__content {
   display: grid;
   padding: var(--content-padding);
   gap: var(--content-spacing);
+  letter-spacing: 0.05rem;
+}
+
+.product__description {
+  letter-spacing: 0.07rem;
 }
 
 .product__tag {
@@ -165,7 +198,12 @@ body {
 .product__title {
   font-family: var(--ff-title);
   color: var(--clr-dark-blue);
-  font-weight: var(--fw-bold);
   font-size: 2rem;
   line-height: 1;
+}
+
+.product__discount-price {
+  font-size: 2rem;
+  font-family: var(--ff-title);
+  color: var(--clr-greeny);
 }
