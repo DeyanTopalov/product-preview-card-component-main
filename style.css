@@ -66,9 +66,11 @@ h6 {
 
 /* @font-face {
   font-family: "Montserrat";
-  src: url("assets/montserrat-variablefont_wght-webfont.woff2") format("woff2"),
-    url("assets/montserrat-variablefont_wght-webfont.woff") format("woff");
-  font-weight: 500 700;
+  src: url("assets/montserrat-variablefont_wght-webfont.woff2")
+      format("woff2-variations"),
+    url("assets/montserrat-variablefont_wght-webfont.woff")
+      format("woff-variations");
+  font-weight: 100 1000;
   font-style: normal;
   font-display: swap;
 } */
@@ -77,10 +79,10 @@ h6 {
 @font-face {
   font-family: "Fraunces";
   src: url("assets/fraunces-variablefont_softwonkopszwght-webfont.woff2")
-      format("woff2"),
+      format("woff2-variations"),
     url("assets/fraunces-variablefont_softwonkopszwght-webfont.woff")
-      format("woff");
-  font-weight: normal;
+      format("woff-variations");
+  font-weight: 100 1000;
   font-style: normal;
   font-display: swap;
 }
@@ -173,6 +175,10 @@ body {
   max-width: 600px;
 }
 @media (min-width: 600px) {
+  body {
+    margin: 0.2rem;
+  }
+
   .product {
     grid-template-columns: 1fr 1fr;
     --content-padding: 2rem;
@@ -197,6 +203,7 @@ body {
 
 .product__title {
   font-family: var(--ff-title);
+  font-weight: var(--fw-bold);
   color: var(--clr-dark-blue);
   font-size: 2rem;
   line-height: 1;
@@ -205,5 +212,6 @@ body {
 .product__discount-price {
   font-size: 2rem;
   font-family: var(--ff-title);
+  font-weight: var(--fw-bold);
   color: var(--clr-greeny);
 }
